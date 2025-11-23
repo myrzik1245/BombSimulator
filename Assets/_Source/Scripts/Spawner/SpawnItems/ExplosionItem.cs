@@ -9,7 +9,7 @@ public class ExplosionItem : ISpawnItem
     [SerializeField] private LayerMask _mask;
     [SerializeField] private float _force;
 
-    public void Execute(Vector3 position)
+    public void Spawn(Vector3 position)
     {
         GameObject.Instantiate(_exposionParticle, position, Quaternion.identity);
 

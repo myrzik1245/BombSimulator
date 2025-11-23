@@ -39,6 +39,6 @@ public class Spawner : MonoBehaviour
         Ray ray = _mainCamera.ScreenPointToRay(_input.MousePosition);
 
         if (Physics.Raycast(ray, out RaycastHit hit))
-            _currenItem.Execute(hit.point);
+            _currenItem.Spawn(hit.point);
     }
 }

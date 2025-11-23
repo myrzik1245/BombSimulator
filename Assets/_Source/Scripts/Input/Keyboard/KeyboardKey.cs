@@ -11,5 +11,5 @@ public class KeyboardKey : IKey
 
     public bool Down => Input.GetKeyDown(_keyCode);
     public bool Up => Input.GetKeyUp(_keyCode);
-    public bool Press => Input.GetKey(_keyCode);
+    public bool Pressing => Input.GetKey(_keyCode);
 }

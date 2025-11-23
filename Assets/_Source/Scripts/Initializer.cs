@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Game : MonoBehaviour
+public class Initializer : MonoBehaviour
 {
     [SerializeField] private DragAndDrop _dragAndDropMover;
     [SerializeField] private Spawner _spawner;

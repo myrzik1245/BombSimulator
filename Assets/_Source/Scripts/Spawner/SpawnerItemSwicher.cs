@@ -17,8 +17,8 @@ public class SpawnerItemSwicher : MonoBehaviour
         _input = input;
         _swicher = new IndexSwicher(_spawnItems.Length);
 
-        _spawnItems[0] = _explosionItem;
-        _spawnItems[1] = _prefabItem;
+        _spawnItems[0] = _prefabItem;
+        _spawnItems[1] = _explosionItem;
 
         _spawner.SetSpawnItem(CurrentSpawnItem);
 
