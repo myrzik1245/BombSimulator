@@ -259,6 +259,7 @@ MonoBehaviour:
   _prefabItem:
     _prefab: {fileID: 829092540365107736, guid: 8d0de19d23fcdb741876724f285301f5,
       type: 3}
+    _offset: {x: 0, y: 0.5, z: 0}
 --- !u!1 &168020092
 GameObject:
   m_ObjectHideFlags: 0
@@ -461,7 +462,7 @@ MonoBehaviour:
   m_BlendUpdateMethod: 1
   m_DefaultBlend:
     m_Style: 1
-    m_Time: 2
+    m_Time: 1
     m_CustomCurve:
       serializedVersion: 2
       m_Curve: []
@@ -491,7 +492,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &365337774
 Transform:
   m_ObjectHideFlags: 0
@@ -524,7 +525,7 @@ MonoBehaviour:
   - m_Script
   m_LockStageInInspector: 
   m_StreamingVersion: 20170927
-  m_Priority: 10
+  m_Priority: 0
   m_StandbyUpdate: 2
   m_LookAt: {fileID: 0}
   m_Follow: {fileID: 0}
@@ -818,6 +819,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 628427137}
+  - component: {fileID: 628427138}
   m_Layer: 0
   m_Name: CameraSwicher
   m_TagString: Untagged
@@ -841,6 +843,22 @@ Transform:
   - {fileID: 541105759}
   m_Father: {fileID: 26440709}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &628427138
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 628427136}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0297419b7329b494fb669f53634de168, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _cameras:
+  - {fileID: 1205783723}
+  - {fileID: 822819022}
+  - {fileID: 365337775}
 --- !u!1 &822819020
 GameObject:
   m_ObjectHideFlags: 0
@@ -857,7 +875,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &822819021
 Transform:
   m_ObjectHideFlags: 0
@@ -890,7 +908,7 @@ MonoBehaviour:
   - m_Script
   m_LockStageInInspector: 
   m_StreamingVersion: 20170927
-  m_Priority: 10
+  m_Priority: 0
   m_StandbyUpdate: 2
   m_LookAt: {fileID: 0}
   m_Follow: {fileID: 0}
@@ -1009,6 +1027,7 @@ MonoBehaviour:
   _dragAndDropMover: {fileID: 893994894}
   _spawner: {fileID: 168020094}
   _spawnItemSwicher: {fileID: 125368851}
+  _cameraSwicher: {fileID: 628427138}
 --- !u!1 &893994892
 GameObject:
   m_ObjectHideFlags: 0

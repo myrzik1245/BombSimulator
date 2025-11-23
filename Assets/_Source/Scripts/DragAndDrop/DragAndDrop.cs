@@ -35,11 +35,9 @@ public class DragAndDrop : MonoBehaviour
 
     private void ProcessDrag()
     {
-        Vector3 screenPosition = _input.MousePosition;
-        screenPosition.z = _mainCamera.transform.position.y;
+        Ray ray = _mainCamera.ScreenPointToRay(Input.mousePosition);
 
-        Vector3 worldPosition = _mainCamera.ScreenToWorldPoint(screenPosition);
-
-        _dragingObject.Move(worldPosition);
+        if (Physics.Raycast(ray, out RaycastHit hit))
+            _dragingObject.Move(hit.point);
     }
 }
