@@ -4,12 +4,12 @@ public class Spawner : MonoBehaviour
 {
     private ISpawnItem _currenItem;
     private IInput _input;
-    private Camera _mainCamera;
+    private CameraRayShooter _rayShooter;
 
     public void Initialize(IInput input)
     {
         _input = input;
-        _mainCamera = Camera.main;
+        _rayShooter = new CameraRayShooter(Camera.main);
     }
 
     public void SetSpawnItem(ISpawnItem item)
@@ -36,9 +36,7 @@ public class Spawner : MonoBehaviour
 
     private void Spawn()
     {
-        Ray ray = _mainCamera.ScreenPointToRay(_input.MousePosition);
-
-        if (Physics.Raycast(ray, out RaycastHit hit))
+        if (_rayShooter.TryShoot(_input.MousePosition, out RaycastHit hit))
             _currenItem.Spawn(hit.point);
     }
 }

@@ -4,40 +4,41 @@ public class DragAndDrop : MonoBehaviour
 {
     private IInput _input;
     private DragMover _dragingObject;
-    private Camera _mainCamera;
+    private CameraRayShooter _rayShooter;
 
     public void Initialize(IInput input)
     {
         _input = input;
-        _mainCamera = Camera.main;
+        _rayShooter = new CameraRayShooter(Camera.main);
     }
 
     private void Update()
     {
         if (_input.Drag.Down)
-            ShootRay();
+            CarryObject();
 
         else if (_input.Drag.Up)
-            _dragingObject = null;
+            DropObject();
 
         if (_dragingObject != null)
             ProcessDrag();
     }
 
-    private void ShootRay()
+    private void CarryObject()
     {
-        Ray ray = _mainCamera.ScreenPointToRay(_input.MousePosition);
-
-        if (Physics.Raycast(ray, out RaycastHit hit, Mathf.Infinity))
+        if (_rayShooter.TryShoot(_input.MousePosition, out RaycastHit hit))
             if (hit.collider.TryGetComponent(out DragMover dragMover))
                 _dragingObject = dragMover;
     }
 
+    private void DropObject()
+    {
+        _dragingObject = null;
+    }
+
     private void ProcessDrag()
     {
-        Ray ray = _mainCamera.ScreenPointToRay(Input.mousePosition);
-
-        if (Physics.Raycast(ray, out RaycastHit hit))
+        if (_rayShooter.TryShoot(_input.MousePosition, out RaycastHit hit))
             _dragingObject.Move(hit.point);
     }
 }
